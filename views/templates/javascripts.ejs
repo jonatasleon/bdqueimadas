@@ -67,22 +67,6 @@
 
 <!--<script data-main="<%- BASE_URL %>javascripts/Startup.js" src="<%- BASE_URL %>externals/require.js/require.js"></script>-->
 
-<!-- Piwik -->
-<script type="text/javascript">
-  var _paq = _paq || [];
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="<%- configurations.piwikUrl %>/";
-    _paq.push(['setTrackerUrl', u+'piwik.php']);
-    _paq.push(['setSiteId', <%- configurations.piwikIdsite %>]);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<noscript><p><img src="<%- configurations.piwikUrl %>/piwik.php?idsite=<%- configurations.piwikIdsite %>" style="border:0;" alt="" /></p></noscript>
-<!-- End Piwik Code -->
-
 <!-- Google Analytics -->
 <!-- Global site tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121460145-1"></script>
