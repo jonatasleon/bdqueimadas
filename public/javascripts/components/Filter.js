@@ -669,7 +669,7 @@ define(
       });
 
       if (ids.length > 0)
-        cql = fieldName + " in (" + ids.join(', ') + ")";
+        cql = "(" + fieldName + " IN (" + ids.join(', ') + ") OR id_area_industrial = 0)";
 
       return cql
     }
@@ -726,7 +726,7 @@ define(
       cql = cql.substring(0, cql.length - 1) + ")";
 
       if (hasSpuriousFilter())
-        cql += " OR " + createSpuriousFilter();
+        cql += " AND " + createSpuriousFilter();
 
       cql += ")";
 
@@ -756,7 +756,7 @@ define(
       cql = cql.substring(0, cql.length - 1) + ")";
 
       if (hasSpuriousFilter())
-        cql += " OR " + createSpuriousFilter();
+        cql += " AND " + createSpuriousFilter();
 
       cql += ")";
 
@@ -811,7 +811,7 @@ define(
       }
 
       if (hasSpuriousFilter())
-        cql += " OR " + createSpuriousFilter();
+        cql += " AND " + createSpuriousFilter();
 
       cql += ")";
 
@@ -831,7 +831,7 @@ define(
       var cql = "(" + Utils.getConfigurations().filterConfigurations.LayerToFilter.CityFieldName + "='" + memberCity + "'";
 
       if (hasSpuriousFilter())
-        cql += " OR " + createSpuriousFilter();
+        cql += " AND " + createSpuriousFilter();
 
       cql += ")";
 
