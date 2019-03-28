@@ -66,6 +66,7 @@ define(
       $("#filter-accesses").on("click", function() {
         filterData();
       });
+    };
 
     /**
      * Initializes the necessary features.
