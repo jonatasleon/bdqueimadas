@@ -60,32 +60,12 @@ define(
 
     var filterData = function () {
       $("#table-load-div").removeClass("hidden");
-
-      Utils.getSocket().emit('piwikDataRequest', {
-        initialDate: $("#initial-date").val().split('/').join('-'),
-        finalDate: $("#final-date").val().split('/').join('-')
-      });
     };
 
     var loadEvents = function() {
       $("#filter-accesses").on("click", function() {
         filterData();
       });
-
-      Utils.getSocket().on('piwikDataResponse', function(result) {
-        if(result.piwikData[0] !== undefined && result.piwikData[0] !== null) {
-          $("#nb_visits").text(result.piwikData[0].nb_visits);
-          $("#nb_actions").text(result.piwikData[0].nb_actions);
-          $("#bounce_count").text(result.piwikData[0].bounce_count);
-          $("#sum_visit_length").text(formatSeconds(result.piwikData[0].sum_visit_length));
-          $("#max_actions").text(result.piwikData[0].max_actions);
-          $("#bounce_rate").text(result.piwikData[0].bounce_rate);
-          $("#avg_time_on_site").text(formatSeconds(result.piwikData[0].avg_time_on_site));
-
-          $("#table-load-div").addClass("hidden");
-        }
-      });
-    };
 
     /**
      * Initializes the necessary features.

@@ -40,7 +40,6 @@ var IndexController = function(app) {
         graphicsConfigurations = JSON.parse(memberFs.readFileSync(memberPath.join(__dirname, '../configurations/Graphics.json'), 'utf8')),
         applicationConfigurations = JSON.parse(memberFs.readFileSync(memberPath.join(__dirname, '../configurations/Application.json'), 'utf8')),
         tablesConfigurations = JSON.parse(memberFs.readFileSync(memberPath.join(__dirname, '../configurations/Tables.json'), 'utf8')),
-        piwikConfigurations = JSON.parse(memberFs.readFileSync(memberPath.join(__dirname, '../configurations/Piwik.json'), 'utf8'));
 
     var configurations = {
       filterConfigurations: filterConfigurations,
@@ -49,8 +48,6 @@ var IndexController = function(app) {
       graphicsConfigurations: graphicsConfigurations,
       applicationConfigurations: applicationConfigurations,
       firesDateFormat: tablesConfigurations.Fires.DateFormat,
-      piwikUrl: piwikConfigurations.Url,
-      piwikIdsite: piwikConfigurations.IdSite
     };
 
     memberFilter.getContinents(function(err, result) {

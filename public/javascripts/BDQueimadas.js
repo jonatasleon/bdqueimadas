@@ -1991,13 +1991,6 @@ define(
         }
       });
 
-      Utils.getSocket().on('piwikDataResponse', function(result) {
-        if(result.piwikData[0] !== undefined && result.piwikData[0] !== null && result.piwikData[0].nb_visits !== undefined && result.piwikData[0].nb_visits !== null) {
-          $('#number-of-accesses > span').text(result.piwikData[0].nb_visits);
-          $('#number-of-accesses').show();
-        }
-      });
-
       // Exportation Listeners
 
       Utils.getSocket().on('existsDataToExportResponse', function(result) {
@@ -2967,8 +2960,6 @@ define(
             $("#layer-explorer-and-filter-button > a").css('background-color', '#f8b802');
           }
         }, 600);
-
-        Utils.getSocket().emit('piwikDataRequest');
 
         setTimeout(function() {
           $('#footer-brasil a').attr('target', '_blank');
